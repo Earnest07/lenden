@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web application for predicting income and creditworthiness"
+    />
+    <title>Unified Income & Creditworthiness Predictor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #f3f4f6;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      /* Custom scrollbar for better aesthetics */
+      body::-webkit-scrollbar {
+        width: 8px;
+      }
+      body::-webkit-scrollbar-track {
+        background: #e0e0e0;
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: #a0a0a0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col items-center justify-center p-4">
+    <div
+      class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-5xl border border-gray-200 my-8"
+    >
+      <h1
+        class="text-4xl font-extrabold text-gray-800 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-700 pb-2"
+      >
+        Unified Income & Creditworthiness Predictor
+      </h1>
+
+      <h2
+        id="main-input-title"
+        class="text-3xl font-bold text-gray-800 mb-6 text-center"
+      >
+        Enter All Input Parameters
+      </h2>
+
+      <form id="prediction-form" class="space-y-6">
+        <div id="form-inputs-container">
+          <!-- Dynamic form inputs will be rendered here by script.js -->
+        </div>
+
+        <div class="flex justify-center mt-8 space-x-4">
+          <button
+            type="submit"
+            id="submit-button"
+            class="flex-1 px-8 py-4 bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold text-lg rounded-xl shadow-lg hover:from-green-600 hover:to-teal-700 transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Get All Predictions
+          </button>
+          <button
+            type="button"
+            id="reset-button"
+            class="flex-1 px-8 py-4 bg-gray-300 text-gray-800 font-bold text-lg rounded-xl shadow-lg hover:bg-gray-400 transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Reset Form
+          </button>
+        </div>
+      </form>
+
+      <!-- Unified Prediction Results Display -->
+      <div
+        id="prediction-results-container"
+        class="mt-10 p-6 bg-green-100 rounded-xl shadow-inner border border-green-300 text-center hidden"
+      >
+        <h2 class="text-3xl font-semibold text-green-800 mb-3">
+          All Model Predictions:
+        </h2>
+        <div id="prediction-output-details" class="space-y-3">
+          <!-- Prediction results will be dynamically inserted here by script.js -->
+        </div>
+        <p class="text-gray-600 mt-4">
+          All predictions are based on the full set of inputs provided.
+        </p>
+      </div>
+
+      <!-- Error Display -->
+      <div
+        id="error-message-container"
+        class="mt-10 p-6 bg-red-100 rounded-xl shadow-inner border border-red-300 text-center hidden"
+      >
+        <h2 class="text-xl font-semibold text-red-800 mb-3">Error:</h2>
+        <p id="error-text" class="text-red-700"></p>
+        <p class="text-gray-600 mt-2">
+          Please ensure the Flask backend is running on `http://127.0.0.1:5000`.
+        </p>
+      </div>
+
+      <div class="mt-8 text-center text-gray-500 text-sm">
+        <p>
+          This application uses pre-trained LightGBM and Random Forest models
+          for predictions, served by a unified Flask backend.
+        </p>
+        <p>Developed with HTML, JavaScript, and Flask.</p>
+      </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
